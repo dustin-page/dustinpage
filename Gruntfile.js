@@ -8,7 +8,7 @@
                     src: "app/index.html"
                 },
                 less: {
-                    src: ["app/css/style.less"]
+                    src: ["app/less/variables.less", "app/less/mixins.less", "app/less/agency.less"]
                 },
                 js: {
                     vendor: ["bower_modules/jquery/jquery.js", "bower_modules/angular/angular.js", "bower_modules/angular-route/angular-route.js", "bower_modules/underscore/underscore.js", "bower_modules/extend.js/index.js", "bower_modules/base64/base64.js"]
