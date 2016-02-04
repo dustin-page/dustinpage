@@ -22,15 +22,6 @@
                     compiled: "generated/template-cache.js"
                 }
             },
-            coffee: {
-                compile: {
-                    expand: true,
-                    cwd: 'app/coffee',
-                    src: '**/*.coffee',
-                    dest: '<%= files.coffee.dest %>',
-                    ext: '.js'
-                }
-            },
             concat: {
                 options: {
                     sourceMap: true
@@ -78,15 +69,6 @@
                     dest: "dist/css/style.css"
                 }
             },
-            ngtemplates: {
-                "tbs.BattlePlannerNG": {
-                    options: {
-                        base: "app/templates"
-                    },
-                    src: "<%= files.templates.src %>",
-                    dest: "<%= files.templates.compiled %>"
-                }
-            },
             copy: {
                 html: {
                     files: {
@@ -126,7 +108,7 @@
         });
         grunt.loadTasks("tasks");
         require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks);
-        grunt.registerTask("default", ["ngtemplates", "less:dev", "coffee", "concat", "copy", "server", "open", "watch"]);
+        grunt.registerTask("default", ["less:dev", "concat", "copy", "server", "open", "watch"]);
         grunt.registerTask("build", ["clean", "ngtemplates", "less:dist", "coffee", "concat", "uglify", "copy"]);
         return grunt.registerTask("prodsim", ["build", "server", "open", "watch"]);
     };
