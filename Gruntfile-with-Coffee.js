@@ -7,16 +7,11 @@
                 html: {
                     src: "app/index.html"
                 },
-                css: {
-                    vendor: ["app/css/bootstrap.css"]
-                },
                 less: {
                     src: ["app/less/variables.less", "app/less/mixins.less", "app/less/agency.less"]
                 },
                 js: {
-                    vendor: ["app/js/jquery.js", "app/js/bootstrap.js", "app/js/jquery.easing.min.js",  "app/js/classie.js", "app/js/cbpAnimatedHeader.js", "app/js/jqBootstrapValidation.js"],
-                    app:["app/js/contact_me.js", "app/js/agency.js"]
-
+                    vendor: ["bower_modules/jquery/jquery.js", "bower_modules/angular/angular.js", "bower_modules/angular-route/angular-route.js", "bower_modules/underscore/underscore.js", "bower_modules/extend.js/index.js", "bower_modules/base64/base64.js"]
                 },
                 coffee: {
                     dest: "generated/compiled-coffee",
@@ -31,12 +26,8 @@
                 options: {
                     sourceMap: true
                 },
-                vendor: {
-                    src: ["<%= files.js.vendor %>"],
-                    dest: "generated/js/vendor.min.js"
-                },
                 app: {
-                    src: ["<%= files.js.app %>"],
+                    src: ["<%= files.js.vendor %>", "<%= files.coffee.compiled %>", "<%= files.templates.compiled %>"],
                     dest: "generated/js/app.min.js"
                 }
             },
@@ -48,12 +39,8 @@
                     files: ["<%= files.html.src %>"],
                     tasks: ["copy"]
                 },
-                css: {
-                    files: ["<%= files.css.vendor %>"],
-                    tasks: ["less:vendor"]
-                },
                 js: {
-                    files: ["<%= files.js.vendor %>", "<%= files.js.app %>"],
+                    files: ["<%= files.js.vendor %>"],
                     tasks: ["concat"]
                 },
                 coffee: {
@@ -67,12 +54,7 @@
             },
             less: {
                 options: {
-                    sourceMap:true,
                     ieCompat: false
-                },
-                vendor: {
-                    src: "<%= files.css.vendor %>",
-                    dest: "generated/css/vendor.css"
                 },
                 dev: {
                     src: "<%= files.less.src %>",
@@ -83,7 +65,7 @@
                         cleancss: true,
                         compress: true
                     },
-                    src: ["<%= files.css.vendor %>", "<%= files.less.src %>"],
+                    src: "<%= files.less.src %>",
                     dest: "dist/css/style.css"
                 }
             },
@@ -126,7 +108,7 @@
         });
         grunt.loadTasks("tasks");
         require('matchdep').filterAll('grunt-*').forEach(grunt.loadNpmTasks);
-        grunt.registerTask("default", ["less:vendor", "less:dev", "concat", "copy", "server", "open", "watch"]);
+        grunt.registerTask("default", ["less:dev", "concat", "copy", "server", "open", "watch"]);
         grunt.registerTask("build", ["clean", "ngtemplates", "less:dist", "coffee", "concat", "uglify", "copy"]);
         return grunt.registerTask("prodsim", ["build", "server", "open", "watch"]);
     };
