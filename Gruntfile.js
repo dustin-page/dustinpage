@@ -11,7 +11,10 @@
                     src: ["app/less/variables.less", "app/less/mixins.less", "app/less/agency.less"]
                 },
                 js: {
-                    vendor: ["bower_modules/jquery/jquery.js", "bower_modules/angular/angular.js", "bower_modules/angular-route/angular-route.js", "bower_modules/underscore/underscore.js", "bower_modules/extend.js/index.js", "bower_modules/base64/base64.js"]
+                    //vendor: ["bower_modules/jquery/jquery.js", "bower_modules/angular/angular.js", "bower_modules/angular-route/angular-route.js", "bower_modules/underscore/underscore.js", "bower_modules/extend.js/index.js", "bower_modules/base64/base64.js"],
+                    vendor: ["app/js/jquery.js", "app/js/bootstrap.js", "app/js/jquery.easing.min.js",  "app/js/classie.js", "app/js/cbpAnimatedHeader.js", "app/js/jqBootstrapValidation.js"],
+                    app:["app/js/contact_me.js", "app/js/agency.js"]
+
                 },
                 coffee: {
                     dest: "generated/compiled-coffee",
@@ -26,8 +29,12 @@
                 options: {
                     sourceMap: true
                 },
+                vendor: {
+                    src: ["<%= files.js.vendor %>"],
+                    dest: "generated/js/vendor.min.js"
+                },
                 app: {
-                    src: ["<%= files.js.vendor %>", "<%= files.coffee.compiled %>", "<%= files.templates.compiled %>"],
+                    src: ["<%= files.js.app %>"],
                     dest: "generated/js/app.min.js"
                 }
             },
@@ -40,7 +47,7 @@
                     tasks: ["copy"]
                 },
                 js: {
-                    files: ["<%= files.js.vendor %>"],
+                    files: ["<%= files.js.vendor %>", "<%= files.js.app %>"],
                     tasks: ["concat"]
                 },
                 coffee: {
