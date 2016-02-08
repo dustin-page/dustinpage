@@ -7,8 +7,11 @@
                 html: {
                     src: "app/index.html"
                 },
+                images: {
+                    src: "app/img/**"
+                },
                 css: {
-                    vendor: ["app/css/bootstrap.css"]
+                    vendor: ["app/css/bootstrap.css", "app/font-awesome/css/font-awesome.css"]
                 },
                 less: {
                     src: ["app/less/variables.less", "app/less/mixins.less", "app/less/agency.less"]
@@ -93,6 +96,20 @@
                         "generated/index.html": "<%= files.html.src %>",
                         "dist/index.html": "<%= files.html.src %>"
                     }
+                },
+                images: {
+                    files: [
+                        // makes all src relative to cwd 
+                        {expand: true, cwd: 'app/', src: 'img/**', dest: 'generated/'},
+                        {expand: true, cwd: 'app/', src: 'img/**', dest: 'dist/'},
+                    ]
+                },
+                fonts: {
+                    files: [
+                        // makes all src relative to cwd 
+                        {expand: true, cwd: 'app/', src: 'fonts/**', dest: 'generated/'},
+                        {expand: true, cwd: 'app/font-awesome', src: 'fonts/**', dest: 'generated/'}
+                    ]
                 }
             },
             server: {
