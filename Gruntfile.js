@@ -49,7 +49,7 @@
                 },
                 html: {
                     files: ["<%= files.html.src %>"],
-                    tasks: ["copy"]
+                    tasks: ["copy:html"]
                 },
                 css: {
                     files: ["<%= files.css.vendor %>"],
