@@ -51,6 +51,10 @@
                     files: ["<%= files.html.src %>"],
                     tasks: ["copy:html"]
                 },
+                images: {
+                    files: ["<%= files.images.src %>"],
+                    tasks: ["copy:images"]
+                },
                 css: {
                     files: ["<%= files.css.vendor %>"],
                     tasks: ["less:vendor"]
