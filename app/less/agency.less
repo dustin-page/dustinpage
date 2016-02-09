@@ -58,7 +58,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-darkest-gray {
-	background-color: @gray-darkest;
+	background-color: @secondary-color;
 }
 
 // Restyled Primary Buttons
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 // Custom Navigation Bar
 
 .navbar-default {
-	background-color: @gray-darkest;
+	background-color: @secondary-color;
 	border-color: transparent;
 	.navbar-brand {
 		color: @brand-primary;
@@ -94,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
         }
 	}
 	.navbar-collapse {
-		border-color: fade(white, 2%);
+		border-color: fade(@white, 2%);
 	}
 	.navbar-toggle {
 		background-color: @brand-primary;
@@ -153,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
     }
     .navbar-default.navbar-shrink {
-    	background-color: fade(@gray-darkest, 75%);
+    	background-color: fade(@secondary-color, 75%);
         padding: 10px 0;
 		.navbar-brand {
 	        font-size: 1.5em;
@@ -251,6 +251,8 @@ section {
         margin: 0 0 15px;
         right: 0;
         border: 1px solid @portfolio-preview-border;
+        border-radius:14px;
+        overflow:hidden;
         .portfolio-link {
             display: block;
             position: relative;
@@ -265,6 +267,8 @@ section {
                 transition: all ease 0.5s;
                 -webkit-transition: all ease 0.5s;
                 -moz-transition: all ease 0.5s;
+                border-top-left-radius: 14px;
+    			border-top-right-radius: 14px;
                 &:hover {
                     opacity: 1;
                 }
@@ -290,18 +294,20 @@ section {
         .portfolio-caption {
         	max-width: 400px;
         	margin: 0 auto;
-        	background-color: white;
+        	background-color: @heading-color;
         	text-align: center;
         	padding: 25px;
         	h5 {
         		text-transform: none;
         		margin: 0;
+        		color: #ffffff;
         	}
         	p {
         		.serif-font;
         		font-style: italic;
         		font-size: 12px;
         		margin: 0;
+        		color: fade(@white, 75%);
         	}
         }
     }
@@ -531,7 +537,7 @@ aside.clients {
 // Contact Section
 
 section#contact {
-	background-color: @gray-darkest;
+	background-color: @secondary-color;
 	background-image: url('../img/map-image.png');
 	background-position: center;
 	background-repeat: no-repeat;
@@ -605,7 +611,7 @@ ul.social-buttons {
 	li {
 		a {
 			display: block;
-			background-color: @gray-darkest;
+			background-color: @secondary-color;
 			height: 40px;
 			width: 40px;
 			border-radius: 100%;
@@ -681,7 +687,7 @@ ul.social-buttons {
             height:75px;
             width:1px;
             margin-left:35px;
-            background-color:@gray-darkest;
+            background-color:@secondary-color;
             transform: rotate(45deg);
             -ms-transform: rotate(45deg);
             /* IE 9 */
@@ -691,7 +697,7 @@ ul.social-buttons {
             .rl {
                 height:75px;
                 width:1px;
-                background-color:@gray-darkest;
+                background-color:@secondary-color;
                 transform: rotate(90deg);
                 -ms-transform: rotate(90deg);
                 /* IE 9 */
