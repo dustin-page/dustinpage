@@ -153,7 +153,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
     }
     .navbar-default.navbar-shrink {
-    	background-color: @gray-darkest;
+    	background-color: fade(@gray-darkest, 75%);
         padding: 10px 0;
 		.navbar-brand {
 	        font-size: 1.5em;
@@ -250,6 +250,7 @@ section {
     .portfolio-item {
         margin: 0 0 15px;
         right: 0;
+        border: 1px solid @portfolio-preview-border;
         .portfolio-link {
             display: block;
             position: relative;
@@ -292,14 +293,14 @@ section {
         	background-color: white;
         	text-align: center;
         	padding: 25px;
-        	h4 {
+        	h5 {
         		text-transform: none;
         		margin: 0;
         	}
         	p {
         		.serif-font;
         		font-style: italic;
-        		font-size: 16px;
+        		font-size: 12px;
         		margin: 0;
         	}
         }
@@ -640,7 +641,7 @@ ul.social-buttons {
 	    border: none;
 	    min-height: 100%;
 	    padding: 100px 0;
-	    text-align: center;
+	    text-align: center;nav
 		h2 {
 	    	margin-bottom: 15px;
 	    	font-size: 3em;
@@ -658,10 +659,11 @@ ul.social-buttons {
 			margin-bottom: 30px;
 			margin-top: 0;
 		}
-		img.img-detailed {
+		img {
 			margin-bottom: 30px;
+		}
+		img.img-detailed {
 			border: 1px solid @portfolio-img-border;
-
 		}
 	}
     .close-modal {
